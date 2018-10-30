@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import Discussion from './Discussion/Discussion';
 
 class App extends Component {
   state = {
-    show: false
+    show: false,
+    allowComments: false
   };
   handleClick = () => {
     this.setState(prevState => ({ show: !prevState.show }));
@@ -12,13 +14,18 @@ class App extends Component {
   handleRequest = type => {
     console.log('type', type);
   };
+
+  handleCommentSwitch = () => {
+    this.setState(prevState => ({ show: !prevState.allowComments }));
+  };
+
   render() {
     return (
       <div className="App">
-        <button className="red-button" onClick={this.handleClick}>
-          Click me
-        </button>
-        {this.state.show && <div className="section-two">SECTION TWO</div>}
+        <Discussion
+          value={this.state.allowComments}
+          title="Zaznacz ten wazny input"
+        />
       </div>
     );
   }

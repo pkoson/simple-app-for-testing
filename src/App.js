@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Discussion from './Discussion/Discussion';
+import VeryImportant from './VeryImportant/VeryImportant';
 
 class App extends Component {
-  state = {
-    show: false,
-    allowComments: false
-  };
-  handleClick = () => {
-    this.setState(prevState => ({ show: !prevState.show }));
-    this.handleRequest('firstRequest');
-  };
   handleRequest = type => {
     console.log('type', type);
   };
@@ -22,10 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Discussion
-          value={this.state.allowComments}
-          title="Zaznacz ten wazny input"
-        />
+        <VeryImportant />
       </div>
     );
   }
